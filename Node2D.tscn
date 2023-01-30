@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MissileControl.cs" type="Script" id=4]
+[ext_resource path="res://Spawner.cs" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -30,18 +31,24 @@ script = ExtResource( 4 )
 
 [node name="SpawnLoc1" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -150 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc2" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -250 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc3" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -350 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc4" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -150 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc5" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -250 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc6" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -350 )
+script = ExtResource( 5 )
