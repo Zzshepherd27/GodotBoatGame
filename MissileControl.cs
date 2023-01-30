@@ -28,22 +28,8 @@ public class MissileControl : Node2D
 			RigidBody2D missileFab = (RigidBody2D)missile.Instance();
 			missileFab.GlobalPosition = spawn.GlobalPosition;
 			AddChild(missileFab);
-			uint randX = (GD.Randi() % 500) + 1;
-			uint randY = (GD.Randi() % 150) + 1;
-			int impX = (int) randX;
-			int impY = (int) randY;
-			if(GD.Randi() % 2 == 1)
-			{
-				impY = impY * -1;
-			}
-			if(missileFab.Position.x == 500)
-			{
-				impX = impX * -1;
-			}
-			Vector2 imp = new Vector2(impX, impY);
-			missileFab.ApplyCentralImpulse(imp);
 			Node2D ship = (Node2D)GetNode("/root/Stage/BattleShip");
-			missileFab.SetRotation(missileFab.GetRotation() + 90);
+			missileFab.Rotation = missileFab.Rotation + 90;
 		}
 	}
 }
