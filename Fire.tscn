@@ -6,7 +6,7 @@
 [sub_resource type="Gradient" id=8]
 colors = PoolColorArray( 0.191406, 0.191406, 0.191406, 1, 0.34375, 0.34375, 0.34375, 0.376471 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=12]
 gradient = SubResource( 8 )
 
 [sub_resource type="ParticlesMaterial" id=10]
@@ -23,27 +23,27 @@ orbit_velocity_random = 0.0
 linear_accel = 75.0
 angle = 270.0
 angle_random = 1.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 12 )
 
 [sub_resource type="Curve" id=2]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 156 ), 0.0, 0.0, 0, 0, Vector2( 1, -151.637 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
+[sub_resource type="CurveTexture" id=13]
 curve = SubResource( 2 )
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.36129, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 0.854902, 0.6, 0.109804, 0.501961, 0.858824, 0.12549, 0.12549, 0.254902 )
 
-[sub_resource type="GradientTexture" id=12]
+[sub_resource type="GradientTexture" id=14]
 gradient = SubResource( 11 )
 
 [sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.507576 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
+[sub_resource type="CurveTexture" id=15]
 curve = SubResource( 6 )
 
 [sub_resource type="ParticlesMaterial" id=1]
@@ -60,9 +60,9 @@ orbit_velocity_random = 0.0
 linear_accel = 75.0
 angle = 270.0
 angle_random = 1.0
-angle_curve = SubResource( 3 )
-scale_curve = SubResource( 7 )
-color_ramp = SubResource( 12 )
+angle_curve = SubResource( 13 )
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 14 )
 
 [node name="Fire" type="Node2D"]
 

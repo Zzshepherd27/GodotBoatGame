@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MissileControl.cs" type="Script" id=4]
-[ext_resource path="res://Missile.cs" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,7 +24,6 @@ offset = Vector2( 0, -100 )
 current = true
 
 [node name="Missile" parent="." instance=ExtResource( 3 )]
-script = ExtResource( 5 )
 
 [node name="MissileControl" type="Node2D" parent="."]
 script = ExtResource( 4 )
