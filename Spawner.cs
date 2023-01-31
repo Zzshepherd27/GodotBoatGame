@@ -42,6 +42,6 @@ public class Spawner : Node2D
 		float unitX = Mathf.Cos(Mathf.Deg2Rad(angle));
 		Vector2 unitVector = new Vector2(unitX, -unitY);
 		spawnerForce = unitVector * magnitude;
-		GD.Print("Unit Y: " + unitY + " Unit X: " + unitX + " Spawn X: " + spawnerForce.x + " Spawn Y: " + spawnerForce.y);
 	}
+	
 }

@@ -44,7 +44,7 @@ public class MissileControl : Node2D
 			{
 				spawn.setAngle(180 - spawn.getAngle());
 			}
-			spawn.setSpawnerForce(300);
+			spawn.setSpawnerForce(400);
 		}
 	}
 
@@ -57,7 +57,6 @@ public class MissileControl : Node2D
 			RigidBody2D missileFab = (RigidBody2D)missile.Instance();
 			missileFab.GlobalPosition = spawn.GlobalPosition;
 			AddChild(missileFab);
-			missileFab.Rotation = missileFab.Rotation + 90;
 		}
 	}
 }
