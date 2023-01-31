@@ -3,39 +3,41 @@ using System;
 
 public class Missile : RigidBody2D
 {
-	private Vector2 velocity = new Vector2();
 	private Vector2 direction;
-	private Vector2 origin = new Vector2(0,0);
+	private Vector2 offset = new Vector2(0,0);
+	private bool backwardsRotation = false;
 
 	// Called when the node enters the scene tree for the first time.
 	
 	public override void _Ready()
 	{
-		uint randX = (GD.Randi() % 500) + 1;
-		uint randY = (GD.Randi() % 150) + 1;
-		int impX = (int) randX;
-		int impY = (int) randY;
-		if(GD.Randi() % 2 == 1)
+		for(int i = 1; i <= 6; i++)
 		{
-			impY = impY * -1;
+			Spawner sp = (Spawner)GetNode("/root/Stage/MissileControl/SpawnLoc" + i);
+			if(this.Position.x == sp.Position.x && this.Position.y == sp.Position.y)
+			{
+				ApplyImpulse(offset, sp.getSpawnerForce());
+				if(sp.Position.x > 0)
+				{
+					backwardsRotation = true;
+				}
+			}
 		}
-		if(Position.x == 500)
-		{
-			impX = impX * -1;
-		}
-		Vector2 imp = new Vector2(impX, impY);
-		ApplyCentralImpulse(imp);
 	}
 	
 	public override void _Process(float delta)
 	{
-		direction = new Vector2(velocity.x, velocity.y).Normalized();
-		float angle = direction.Angle();
-		this.GlobalRotation = Mathf.LerpAngle(this.GlobalRotation, angle, delta);
+		direction = new Vector2(LinearVelocity.x, LinearVelocity.y).Normalized();
+		float angle = Mathf.Rad2Deg(Mathf.Asin(direction.y));
+		if(backwardsRotation)
+		{
+			this.RotationDegrees = -(angle - 90);
+		}
+		else
+		{
+			this.RotationDegrees = angle - 90;
+		}
 	}
 
-	public void applyImp(Vector2 imp)
-	{
-		this.ApplyCentralImpulse(imp);
-	}
+	
 }

@@ -1,11 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Boat.png" type="Texture" id=2]
 [ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MissileControl.cs" type="Script" id=4]
-
-[sub_resource type="RectangleShape2D" id=1]
+[ext_resource path="res://Spawner.cs" type="Script" id=5]
 
 [node name="Stage" type="Node2D"]
 
@@ -13,11 +12,11 @@
 script = ExtResource( 1 )
 
 [node name="Battlecrip" type="Sprite" parent="BattleShip"]
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BattleShip"]
-scale = Vector2( 3, 3 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleShip"]
+polygon = PoolVector2Array( -108, 12, -104, 21, 89, 21, 109, 3, 77, 5, 76, 1, 70, -1, 70, 5, 41, 6, 39, -2, 34, -9, 25, -10, 23, -22, 19, -21, 20, -16, 16, -1, 13, -1, 13, -10, -18, -9, -43, 1, -43, 5, -67, 6, -82, 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -100 )
@@ -30,18 +29,24 @@ script = ExtResource( 4 )
 
 [node name="SpawnLoc1" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -150 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc2" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -250 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc3" type="Node2D" parent="MissileControl"]
 position = Vector2( -500, -350 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc4" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -150 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc5" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -250 )
+script = ExtResource( 5 )
 
 [node name="SpawnLoc6" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -350 )
+script = ExtResource( 5 )
