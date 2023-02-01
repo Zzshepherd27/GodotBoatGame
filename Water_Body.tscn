@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://water_shader.tres" type="Shader" id=1]
+[ext_resource path="res://smooth_path_modified.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/tint = Color( 0, 0.819608, 0.901961, 1 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="Water_Body" type="Node2D"]
+
+[node name="Water_Polygon" type="Polygon2D" parent="."]
+material = SubResource( 1 )
+color = Color( 0.45098, 0.831373, 1, 0.152941 )
+
+[node name="Water_Border" type="Path2D" parent="."]
+self_modulate = Color( 1, 1, 1, 1 )
+curve = SubResource( 2 )
+script = ExtResource( 2 )
