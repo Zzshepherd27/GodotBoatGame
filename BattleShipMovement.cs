@@ -34,4 +34,5 @@ public class BattleShipMovement : KinematicBody2D
 		GetInput();
 		velocity = MoveAndSlide(velocity);
 	}
+
 }
