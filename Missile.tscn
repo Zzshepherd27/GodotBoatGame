@@ -85,7 +85,6 @@ position = Vector2( 0, -40 )
 rotation = -1.5708
 amount = 40
 lifetime = 2.0
-local_coords = false
 process_material = SubResource( 14 )
 texture = ExtResource( 4 )
 
@@ -95,7 +94,6 @@ position = Vector2( 0, -30 )
 rotation = -1.5708
 amount = 20
 lifetime = 2.0
-local_coords = false
 process_material = SubResource( 18 )
 texture = ExtResource( 3 )
 
