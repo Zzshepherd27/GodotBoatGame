@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Boat.png" type="Texture" id=2]
@@ -10,12 +10,13 @@
 [ext_resource path="res://Assets/Background_Day.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Background_Night.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sand.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Clouds.png" type="Texture" id=11]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
 
 [node name="BackgroundNight" type="Sprite" parent="."]
-position = Vector2( -6.99994, -114 )
+position = Vector2( -4, -114 )
 scale = Vector2( 0.16, 0.15 )
 texture = ExtResource( 9 )
 
@@ -28,6 +29,11 @@ texture = ExtResource( 8 )
 position = Vector2( 0, -41 )
 scale = Vector2( 0.67, 0.5 )
 texture = ExtResource( 10 )
+
+[node name="Clouds" type="Sprite" parent="."]
+position = Vector2( -8, -317 )
+scale = Vector2( 0.67, 0.25 )
+texture = ExtResource( 11 )
 
 [node name="BattleShip" type="KinematicBody2D" parent="."]
 script = ExtResource( 1 )
@@ -76,5 +82,8 @@ script = ExtResource( 5 )
 [node name="SpawnLoc6" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -350 )
 script = ExtResource( 5 )
+
+[node name="PlaneControl" type="Node2D" parent="."]
+position = Vector2( -393, -171 )
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
