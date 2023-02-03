@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sand.png-76f96a85143184b2338196662bbd09bd.stex"
+path="res://.import/SandDay.png-434c8218f5befc99fda6f4ce1dbf5927.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sand.png"
-dest_files=[ "res://.import/Sand.png-76f96a85143184b2338196662bbd09bd.stex" ]
+source_file="res://Assets/SandDay.png"
+dest_files=[ "res://.import/SandDay.png-434c8218f5befc99fda6f4ce1dbf5927.stex" ]
 
 [params]
 
