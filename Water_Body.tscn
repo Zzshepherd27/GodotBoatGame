@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
-shader_param/tint = Color( 0, 0.819608, 0.901961, 1 )
+shader_param/tint = Color( 0.12549, 0.305882, 0.537255, 1 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {

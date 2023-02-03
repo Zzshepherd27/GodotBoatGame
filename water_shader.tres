@@ -9,7 +9,7 @@ void fragment(){
 	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	
 	color = mix(color,tint,0.3);
-	color = mix(vec4(0.5),color,1.4);
+	color = mix(vec4(0.2),color,0.4);
 	
 	COLOR = color;
 	

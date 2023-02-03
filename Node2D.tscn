@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
-[ext_resource path="res://Boat.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
 [ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MissileControl.cs" type="Script" id=4]
 [ext_resource path="res://Spawner.cs" type="Script" id=5]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Assets/Background_Night.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sand.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Clouds.png" type="Texture" id=11]
+[ext_resource path="res://Water_Body.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Water_Body.gd" type="Script" id=13]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -51,6 +53,7 @@ scale = Vector2( 5, 5 )
 one_shot = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BattleShip"]
+position = Vector2( 0, -7 )
 polygon = PoolVector2Array( -108, 12, -104, 21, 89, 21, 109, 3, 77, 5, 76, 1, 70, -1, 70, 5, 41, 6, 39, -2, 34, -9, 25, -10, 23, -22, 19, -21, 20, -16, 16, -1, 13, -1, 13, -10, -18, -9, -43, 1, -43, 5, -67, 6, -82, 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -58,6 +61,7 @@ offset = Vector2( 0, -100 )
 current = true
 
 [node name="Missile" parent="." instance=ExtResource( 3 )]
+position = Vector2( 700, 0 )
 
 [node name="PlaneControl" type="Node2D" parent="."]
 
@@ -105,5 +109,11 @@ script = ExtResource( 5 )
 [node name="SpawnLoc6" type="Node2D" parent="MissileControl"]
 position = Vector2( 500, -350 )
 script = ExtResource( 5 )
+
+[node name="Water_Body" parent="." instance=ExtResource( 12 )]
+position = Vector2( -653, 10 )
+z_index = 1
+script = ExtResource( 13 )
+spring_number = 60
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
