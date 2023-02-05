@@ -41,6 +41,7 @@ show_behind_parent = true
 position = Vector2( -1, 17 )
 rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
+z_index = -1
 amount = 40
 lifetime = 2.0
 local_coords = false
