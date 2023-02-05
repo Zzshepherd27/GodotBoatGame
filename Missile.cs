@@ -13,7 +13,7 @@ public class Missile : RigidBody2D
 	{
 		for(int i = 1; i <= 6; i++)
 		{
-			Spawner sp = (Spawner)GetNode("/root/Stage/MissileControl/SpawnLoc" + i);
+			Spawner sp = (Spawner)GetNode("/root/Stage/SpawnerController/SpawnLoc" + i);
 			if(this.Position.x == sp.Position.x && this.Position.y == sp.Position.y)
 			{
 				ApplyImpulse(offset, sp.getSpawnerForce());
