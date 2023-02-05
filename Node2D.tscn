@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
 [ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MissileControl.cs" type="Script" id=4]
+[ext_resource path="res://SpawnerController.cs" type="Script" id=4]
 [ext_resource path="res://Spawner.cs" type="Script" id=5]
 [ext_resource path="res://World.gd" type="Script" id=6]
 [ext_resource path="res://BattleShipShoot.gd" type="Script" id=7]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Water_Body.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
+[ext_resource path="res://BomberPlane.tscn" type="PackedScene" id=15]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -69,51 +70,55 @@ current = true
 [node name="Missile" parent="." instance=ExtResource( 3 )]
 position = Vector2( 700, 0 )
 
-[node name="PlaneControl" type="Node2D" parent="."]
-
-[node name="SpawnLoc7" type="Node2D" parent="PlaneControl"]
-position = Vector2( -640, -400 )
-
-[node name="SpawnLoc8" type="Node2D" parent="PlaneControl"]
-position = Vector2( -640, -300 )
-
-[node name="SpawnLoc9" type="Node2D" parent="PlaneControl"]
-position = Vector2( -640, -200 )
-
-[node name="SpawnLoc10" type="Node2D" parent="PlaneControl"]
-position = Vector2( 640, -400 )
-
-[node name="SpawnNode11" type="Node2D" parent="PlaneControl"]
-position = Vector2( 640, -300 )
-
-[node name="SpawnNode12" type="Node2D" parent="PlaneControl"]
-position = Vector2( 640, -200 )
-
-[node name="MissileControl" type="Node2D" parent="."]
+[node name="SpawnerController" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
-[node name="SpawnLoc1" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc1" type="Node2D" parent="SpawnerController"]
 position = Vector2( -500, -150 )
 script = ExtResource( 5 )
 
-[node name="SpawnLoc2" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc2" type="Node2D" parent="SpawnerController"]
 position = Vector2( -500, -250 )
 script = ExtResource( 5 )
 
-[node name="SpawnLoc3" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc3" type="Node2D" parent="SpawnerController"]
 position = Vector2( -500, -350 )
 script = ExtResource( 5 )
 
-[node name="SpawnLoc4" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc4" type="Node2D" parent="SpawnerController"]
 position = Vector2( 500, -150 )
 script = ExtResource( 5 )
 
-[node name="SpawnLoc5" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc5" type="Node2D" parent="SpawnerController"]
 position = Vector2( 500, -250 )
 script = ExtResource( 5 )
 
-[node name="SpawnLoc6" type="Node2D" parent="MissileControl"]
+[node name="SpawnLoc6" type="Node2D" parent="SpawnerController"]
 position = Vector2( 500, -350 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc7" type="Node2D" parent="SpawnerController"]
+position = Vector2( -640, -400 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc8" type="Node2D" parent="SpawnerController"]
+position = Vector2( -640, -300 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc9" type="Node2D" parent="SpawnerController"]
+position = Vector2( -640, -200 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc10" type="Node2D" parent="SpawnerController"]
+position = Vector2( 640, -400 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc11" type="Node2D" parent="SpawnerController"]
+position = Vector2( 640, -300 )
+script = ExtResource( 5 )
+
+[node name="SpawnLoc12" type="Node2D" parent="SpawnerController"]
+position = Vector2( 640, -200 )
 script = ExtResource( 5 )
 
 [node name="Water_Body" parent="." instance=ExtResource( 12 )]
@@ -121,5 +126,8 @@ position = Vector2( -653, 10 )
 z_index = 1
 script = ExtResource( 13 )
 spring_number = 60
+
+[node name="BomberPlane" parent="." instance=ExtResource( 15 )]
+position = Vector2( 800, 600 )
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]

@@ -5,8 +5,8 @@ public class BattleShipMovement : KinematicBody2D
 {
 	[Export] public int speed = 200;
 	
-	public Vector2 velocity = new Vector2();
-	Sprite boat;
+	private Vector2 velocity = new Vector2();
+	private Sprite boat;
 	
 	public override void _Ready()
 	{

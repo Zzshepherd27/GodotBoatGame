@@ -6,6 +6,7 @@ public class Spawner : Node2D
 	
 	private float angle;
 	private Vector2 spawnerForce;
+	private Vector2 velocity;
 	
 
 	// Called when the node enters the scene tree for the first time.
@@ -44,4 +45,13 @@ public class Spawner : Node2D
 		spawnerForce = unitVector * magnitude;
 	}
 	
+	public void setSpawnerVelocity(float velocityx, float velocityy)
+	{
+		velocity = new Vector2(velocityx, velocityy);
+	}
+	
+	public Vector2 getSpawnerVelocity()
+	{
+		return velocity;
+	}
 }
