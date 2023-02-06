@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
@@ -15,6 +15,101 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://BomberPlane.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/explosion_effect.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Smoke.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Fire.png" type="Texture" id=18]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.288574, 0.288574, 0.288574, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -7.73693, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 130.57
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.25
+scale_random = 0.15
+scale_curve = SubResource( 4 )
+color = Color( 0.423529, 0.423529, 0.423529, 1 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Curve" id=6]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.0224719, -263.455 ), 0.0, 0.0, 0, 0, Vector2( 1, 57.2727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.00483092, 0.816425, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.52549, 1, 0, 0, 0.156863 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.172306, 0, 0, Vector2( 0.573034, 0 ), -12.905, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 132.5
+initial_velocity_random = 0.13
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel_random = 1.0
+damping = 6.93
+damping_random = 0.91
+angle = -521.4
+angle_random = 1.0
+angle_curve = SubResource( 7 )
+scale = 0.0
+scale_random = 0.22
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 9 )
+
+[sub_resource type="Curve" id=13]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 54.8182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -6.11875, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 19.81
+initial_velocity_random = 0.1
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 14 )
+scale = 0.1
+scale_curve = SubResource( 16 )
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -132,5 +227,29 @@ spring_number = 60
 
 [node name="BomberPlane" parent="." instance=ExtResource( 15 )]
 position = Vector2( 800, 600 )
+
+[node name="smokeexplode" type="Particles2D" parent="."]
+position = Vector2( 850, -48 )
+emitting = false
+amount = 50
+one_shot = true
+randomness = 1.0
+process_material = SubResource( 5 )
+texture = ExtResource( 17 )
+
+[node name="fireexplode" type="Particles2D" parent="smokeexplode"]
+emitting = false
+amount = 60
+one_shot = true
+randomness = 1.0
+process_material = SubResource( 12 )
+texture = ExtResource( 18 )
+
+[node name="boomexplode" type="Particles2D" parent="smokeexplode"]
+emitting = false
+amount = 1
+one_shot = true
+process_material = SubResource( 17 )
+texture = ExtResource( 16 )
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
