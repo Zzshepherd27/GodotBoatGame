@@ -6,13 +6,14 @@ public class SpawnerController : Node2D
 	private Spawner spawn;
 	private int randCounter1 = 0; //Controls how random the spawning will be
 	private int randCounter2 = 0;
+	private int pace = 1000;
 	
 	public override void _Process(float delta)
 	{
 		uint random = (GD.Randi() % 3) + 1;
 		randCounter1 += (int) random;
 		randCounter2 += (int) random;
-		if(randCounter1 > 400)
+		if(randCounter1 > pace)
 		{
 			random = (GD.Randi() % 6) + 1;
 			int spawnLoc = (int) random;
@@ -20,12 +21,16 @@ public class SpawnerController : Node2D
 			spawnItem(spawnLoc);
 			randCounter1 = 0;
 		}
-		else if(randCounter2 > 1600)
+		else if(randCounter2 > pace * 4)
 		{
 			random = (GD.Randi() % 6) + 7;
 			int spawnLoc = (int) random;
 			spawnItem(spawnLoc);
 			randCounter2 = 0;
+			if(pace > 400)
+			{
+				pace -= 100;
+			}
 		}
 	}
 	
@@ -73,9 +78,37 @@ public class SpawnerController : Node2D
 		else if(sl < 7)
 		{
 			PackedScene missile = (PackedScene)GD.Load("res://Missile.tscn");
+			int test = (int)((GD.Randi() % 4) + 1);
+			if(test == 2)
+			{
+				missile = (PackedScene)GD.Load("res://Missile2.tscn");
+			}
+			else if(test == 3)
+			{
+				missile = (PackedScene)GD.Load("res://Missile3.tscn");
+			}
+			else if(test == 4)
+			{
+				missile = (PackedScene)GD.Load("res://Missile4.tscn");
+			}
 			if(missile != null)
 			{
-				RigidBody2D missileFab = (RigidBody2D)missile.Instance();
+				Missile missileFab = (Missile)missile.Instance();
+				float math = 1;
+				switch(test)
+				{
+					case 2:
+						missileFab.setSpeed((math * (3/2))/60);
+						break;
+					case 3:
+						missileFab.setSpeed((math/2)/60);
+						break;
+					case 4:
+						missileFab.setSpeed(((math/4)*3)/60);
+						break;
+					default:
+						break;
+				}
 				missileFab.GlobalPosition = spawn.GlobalPosition;
 				AddChild(missileFab);
 			}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://BomberPlane.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Missile3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Missile2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Missile4.tscn" type="PackedScene" id=18]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -132,5 +135,13 @@ spring_number = 60
 
 [node name="BomberPlane" parent="." instance=ExtResource( 15 )]
 position = Vector2( 800, 600 )
+
+[node name="Missile2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 800, 0 )
+
+[node name="Missile3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 750, 0 )
+
+[node name="Missile4" parent="." instance=ExtResource( 18 )]
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
