@@ -5,6 +5,8 @@ public class Missile : RigidBody2D
 {
 	private Vector2 direction;
 	private Vector2 offset = new Vector2(0,0);
+	private float speed = 1/60;
+	private float damage = 100;
 	private bool backwardsRotation = false;
 
 	// Called when the node enters the scene tree for the first time.
@@ -25,7 +27,7 @@ public class Missile : RigidBody2D
 		}
 	}
 	
-	public override void _Process(float delta)
+	public override void _Process(float speed)
 	{
 		direction = new Vector2(LinearVelocity.x, LinearVelocity.y).Normalized();
 		float angle = Mathf.Rad2Deg(Mathf.Asin(direction.y));
@@ -39,5 +41,23 @@ public class Missile : RigidBody2D
 		}
 	}
 
+	public void setDamage(float dmg)
+	{
+		damage = dmg;
+	}
 	
+	public float getDamage()
+	{
+		return damage;
+	}
+	
+	public void setSpeed(float spd)
+	{
+		speed = spd;
+	}
+	
+	public float getSpeed()
+	{
+		return speed;
+	}
 }
