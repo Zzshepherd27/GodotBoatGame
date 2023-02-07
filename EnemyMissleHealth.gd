@@ -7,5 +7,8 @@ func take_damage(damage):
 	if hp <= 0:
 		queue_free()
 
-func _on_CollisionShape2D_child_entered_tree(node):
-	take_damage(1)
+func _physics_process(delta):
+	var collideObject = move_and_collide(Vector2(0, speed * delta))
+	if(collideObject):
+		take_damage(1)
+
