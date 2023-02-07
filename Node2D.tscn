@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=36 format=2]
-=======
-[gd_scene load_steps=19 format=2]
->>>>>>> 5564c6ac9f476fa145edaf1cd4f97229a86c5b2c
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
@@ -19,7 +15,6 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://BomberPlane.tscn" type="PackedScene" id=15]
-<<<<<<< HEAD
 [ext_resource path="res://Assets/explosion_effect.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Smoke.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Fire.png" type="Texture" id=18]
@@ -115,11 +110,6 @@ orbit_velocity_random = 0.0
 angle_curve = SubResource( 14 )
 scale = 0.1
 scale_curve = SubResource( 16 )
-=======
-[ext_resource path="res://Missile3.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Missile2.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Missile4.tscn" type="PackedScene" id=18]
->>>>>>> 5564c6ac9f476fa145edaf1cd4f97229a86c5b2c
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -161,7 +151,7 @@ texture = ExtResource( 2 )
 script = ExtResource( 7 )
 
 [node name="Muzzle" type="Position2D" parent="BattleShip/Battlecrip"]
-position = Vector2( 0, -300 )
+position = Vector2( 0, -150 )
 scale = Vector2( 5, 5 )
 
 [node name="FireDelayTimer" type="Timer" parent="BattleShip/Battlecrip"]
@@ -238,7 +228,6 @@ spring_number = 60
 [node name="BomberPlane" parent="." instance=ExtResource( 15 )]
 position = Vector2( 800, 600 )
 
-<<<<<<< HEAD
 [node name="smokeexplode" type="Particles2D" parent="."]
 position = Vector2( 850, -48 )
 emitting = false
@@ -262,14 +251,5 @@ amount = 1
 one_shot = true
 process_material = SubResource( 17 )
 texture = ExtResource( 16 )
-=======
-[node name="Missile2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 800, 0 )
-
-[node name="Missile3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 750, 0 )
-
-[node name="Missile4" parent="." instance=ExtResource( 18 )]
->>>>>>> 5564c6ac9f476fa145edaf1cd4f97229a86c5b2c
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
