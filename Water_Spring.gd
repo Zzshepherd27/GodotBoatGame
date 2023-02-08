@@ -50,13 +50,11 @@ func set_collision_width(value):
 
 func _on_Area2D_body_entered(body):
 	
-	if body.get_meta("type") == null:
-		emit_signal("splash",index,1)
+#	if body.get_meta("type") == null:
+	emit_signal("splash",index,1)
 #	if body == collided_with:
 #		return
 #	collided_with = body
 #
 #	var speed = body.motion.y * motion_factor
 #	emit_signal("splash",index,speed)
-	
-	pass # Replace with function body.

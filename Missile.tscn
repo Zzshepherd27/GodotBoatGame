@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Missile.png" type="Texture" id=1]
 [ext_resource path="res://Missile.cs" type="Script" id=2]
 [ext_resource path="res://Assets/PixelFire.png" type="Texture" id=3]
 [ext_resource path="res://Assets/PixelSmoke.png" type="Texture" id=4]
+[ext_resource path="res://EnemyHealth.gd" type="Script" id=5]
 
 [sub_resource type="Gradient" id=13]
 colors = PoolColorArray( 0.191406, 0.191406, 0.191406, 1, 0.34375, 0.34375, 0.34375, 0.376471 )
@@ -69,8 +70,8 @@ color_ramp = SubResource( 23 )
 [sub_resource type="CapsuleShape2D" id=20]
 
 [sub_resource type="CapsuleShape2D" id=25]
-radius = 11.0
-height = 58.0
+radius = 12.0
+height = 66.0
 
 [node name="Missile" type="RigidBody2D"]
 position = Vector2( 600, 0 )
@@ -107,6 +108,7 @@ scale = Vector2( 1, 2 )
 shape = SubResource( 20 )
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
 position = Vector2( 0, 7 )

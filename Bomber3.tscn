@@ -16,9 +16,9 @@ texture = ExtResource( 2 )
 polygon = PoolVector2Array( -11, 1, -17, 1, -31, 2, -34, 4, -46, 6, -51, 7, -45, 10, -36, 11, -14, 11, -5, 12, -4, 13, 24, 15, 24, 12, 32, 12, 37, 11, 46, 11, 46, 9, 49, 6, 49, 0, 47, -2, 51, -15, 46, -15, 29, -1, 22, -1, 22, 2, 12, 2, 1, 1 )
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+[node name="Bomber3Area" type="Area2D" parent="." groups=["Enemy"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomber3Area" groups=["Enemy"]]
 position = Vector2( 0, 10 )
 scale = Vector2( 5, 0.5 )
 shape = SubResource( 1 )
