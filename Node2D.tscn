@@ -1,8 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Full_Boat.png" type="Texture" id=2]
-[ext_resource path="res://Missile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SpawnerController.cs" type="Script" id=4]
 [ext_resource path="res://Spawner.cs" type="Script" id=5]
 [ext_resource path="res://World.gd" type="Script" id=6]
@@ -14,7 +13,6 @@
 [ext_resource path="res://Water_Body.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
-[ext_resource path="res://BomberPlane.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/explosion_effect.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Smoke.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Fire.png" type="Texture" id=18]
@@ -176,9 +174,6 @@ shape = SubResource( 18 )
 offset = Vector2( 0, -100 )
 current = true
 
-[node name="Missile" parent="." instance=ExtResource( 3 )]
-position = Vector2( 700, 0 )
-
 [node name="SpawnerController" type="Node2D" parent="."]
 script = ExtResource( 4 )
 
@@ -235,9 +230,6 @@ position = Vector2( -653, 10 )
 z_index = 1
 script = ExtResource( 13 )
 spring_number = 60
-
-[node name="BomberPlane" parent="." instance=ExtResource( 15 )]
-position = Vector2( 800, 600 )
 
 [node name="smokeexplode" type="Particles2D" parent="."]
 position = Vector2( 850, -48 )
