@@ -8,7 +8,7 @@ public class BomberPlaneMovement : KinematicBody2D
 	// private string b = "text";
 	private Vector2 velocity = new Vector2(-100, 0);
 	private Sprite bomberSprite;
-
+	private float damage = 1;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -23,5 +23,15 @@ public class BomberPlaneMovement : KinematicBody2D
 	public override void _Process(float delta)
 	{
 		velocity = MoveAndSlide(velocity);
+	}
+	
+	public void setDamage(float dmg)
+	{
+		damage = dmg;
+	}
+	
+	public float getDamage()
+	{
+		return damage;
 	}
 }

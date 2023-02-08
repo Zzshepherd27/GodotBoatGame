@@ -5,7 +5,6 @@ public class Missile : RigidBody2D
 {
 	private Vector2 direction;
 	private Vector2 offset = new Vector2(0,0);
-	private float speed = 1/60;
 	private float damage = 100;
 	private bool backwardsRotation = false;
 
@@ -27,7 +26,7 @@ public class Missile : RigidBody2D
 		}
 	}
 	
-	public override void _Process(float speed)
+	public override void _IntegrateForces(Physics2DDirectBodyState state)
 	{
 		direction = new Vector2(LinearVelocity.x, LinearVelocity.y).Normalized();
 		float angle = Mathf.Rad2Deg(Mathf.Asin(direction.y));
@@ -51,13 +50,4 @@ public class Missile : RigidBody2D
 		return damage;
 	}
 	
-	public void setSpeed(float spd)
-	{
-		speed = spd;
-	}
-	
-	public float getSpeed()
-	{
-		return speed;
-	}
 }

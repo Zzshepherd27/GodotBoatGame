@@ -68,9 +68,32 @@ public class SpawnerController : Node2D
 		if(sl > 6)
 		{
 			PackedScene bomberPlane = (PackedScene)GD.Load("res://BomberPlane.tscn");
+			int test = (int)((GD.Randi() % 3) + 1);
+			switch(test)
+			{
+				case 2:
+					bomberPlane = (PackedScene)GD.Load("res://Bomber2.tscn");
+					break;
+				case 3:
+					bomberPlane = (PackedScene)GD.Load("res://Bomber3.tscn");
+					break;
+				default:
+					break;
+			}
 			if(bomberPlane != null)
 			{
-				KinematicBody2D bomberFab = (KinematicBody2D)bomberPlane.Instance();
+				BomberPlaneMovement bomberFab = (BomberPlaneMovement)bomberPlane.Instance();
+				switch(test)
+				{
+					case 2:
+						bomberFab.setDamage(2);
+						break;
+					case 3:
+						bomberFab.setDamage(3);
+						break;
+					default:
+						break;
+				}
 				bomberFab.GlobalPosition = spawn.GlobalPosition;
 				AddChild(bomberFab);
 			}
@@ -79,36 +102,23 @@ public class SpawnerController : Node2D
 		{
 			PackedScene missile = (PackedScene)GD.Load("res://Missile.tscn");
 			int test = (int)((GD.Randi() % 4) + 1);
-			if(test == 2)
+			switch(test)
 			{
-				missile = (PackedScene)GD.Load("res://Missile2.tscn");
-			}
-			else if(test == 3)
-			{
-				missile = (PackedScene)GD.Load("res://Missile3.tscn");
-			}
-			else if(test == 4)
-			{
-				missile = (PackedScene)GD.Load("res://Missile4.tscn");
+				case 2:
+					missile = (PackedScene)GD.Load("res://Missile2.tscn");
+					break;
+				case 3:
+					missile = (PackedScene)GD.Load("res://Missile3.tscn");
+					break;
+				case 4:
+					missile = (PackedScene)GD.Load("res://Missile4.tscn");
+					break;
+				default:
+					break;
 			}
 			if(missile != null)
 			{
 				Missile missileFab = (Missile)missile.Instance();
-				float math = 1;
-				switch(test)
-				{
-					case 2:
-						missileFab.setSpeed((math * (3/2))/60);
-						break;
-					case 3:
-						missileFab.setSpeed((math/2)/60);
-						break;
-					case 4:
-						missileFab.setSpeed(((math/4)*3)/60);
-						break;
-					default:
-						break;
-				}
 				missileFab.GlobalPosition = spawn.GlobalPosition;
 				AddChild(missileFab);
 			}
