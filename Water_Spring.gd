@@ -49,7 +49,9 @@ func set_collision_width(value):
 	pass
 
 func _on_Area2D_body_entered(body):
-	emit_signal("splash",index,1)
+	
+	if body.get_meta("type") == null:
+		emit_signal("splash",index,1)
 #	if body == collided_with:
 #		return
 #	collided_with = body

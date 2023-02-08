@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Boat Game"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
