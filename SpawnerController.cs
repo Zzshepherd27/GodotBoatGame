@@ -68,32 +68,17 @@ public class SpawnerController : Node2D
 		if(sl > 6)
 		{
 			PackedScene bomberPlane = (PackedScene)GD.Load("res://BomberPlane.tscn");
-			int test = (int)((GD.Randi() % 3) + 1);
-			switch(test)
+			if(spawn.GlobalPosition.y == -300)
 			{
-				case 2:
-					bomberPlane = (PackedScene)GD.Load("res://Bomber2.tscn");
-					break;
-				case 3:
-					bomberPlane = (PackedScene)GD.Load("res://Bomber3.tscn");
-					break;
-				default:
-					break;
+				bomberPlane = (PackedScene)GD.Load("res://Bomber2.tscn");
+			}
+			else if(spawn.GlobalPosition.y == -400)
+			{
+				bomberPlane = (PackedScene)GD.Load("res://Bomber3.tscn");
 			}
 			if(bomberPlane != null)
 			{
 				BomberPlaneMovement bomberFab = (BomberPlaneMovement)bomberPlane.Instance();
-				switch(test)
-				{
-					case 2:
-						bomberFab.setDamage(2);
-						break;
-					case 3:
-						bomberFab.setDamage(3);
-						break;
-					default:
-						break;
-				}
 				bomberFab.GlobalPosition = spawn.GlobalPosition;
 				AddChild(bomberFab);
 			}
