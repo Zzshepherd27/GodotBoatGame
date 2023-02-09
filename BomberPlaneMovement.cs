@@ -9,6 +9,7 @@ public class BomberPlaneMovement : KinematicBody2D
 	private Vector2 velocity = new Vector2(-150, 0);
 	private Sprite bomberSprite;
 	private float damage = 1;
+	private float points = 2000;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -21,10 +22,12 @@ public class BomberPlaneMovement : KinematicBody2D
 		if(GlobalPosition.y == -300)
 		{
 			velocity = 2 * velocity;
+			points = 4000;
 		}
 		else if(GlobalPosition.y == -400)
 		{
 			velocity = 4 * velocity;
+			points = 8000;
 		}
 	}
 
@@ -41,5 +44,10 @@ public class BomberPlaneMovement : KinematicBody2D
 	public float getDamage()
 	{
 		return damage;
+	}
+	
+	public float getPoints()
+	{
+		return points;
 	}
 }

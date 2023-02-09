@@ -112,4 +112,6 @@ script = ExtResource( 5 )
 position = Vector2( 0, 10 )
 shape = SubResource( 31 )
 
+[node name="pointTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_Missile2_body_entered"]

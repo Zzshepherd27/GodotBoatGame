@@ -111,3 +111,5 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
 position = Vector2( 0, 10 )
 shape = SubResource( 27 )
+
+[node name="pointTimer" type="Timer" parent="."]

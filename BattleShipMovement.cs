@@ -3,7 +3,7 @@ using System;
 
 public class BattleShipMovement : KinematicBody2D
 {
-	[Export] public int speed = 200;
+	[Export] public int speed = 300;
 	
 	private Vector2 velocity = new Vector2();
 	private Sprite boat;

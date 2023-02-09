@@ -7,6 +7,8 @@ public class Missile : RigidBody2D
 	private Vector2 offset = new Vector2(0,0);
 	private float damage = 100;
 	private bool backwardsRotation = false;
+	private Timer pointTimer;
+	private float points = 250;
 
 	// Called when the node enters the scene tree for the first time.
 	
@@ -24,6 +26,10 @@ public class Missile : RigidBody2D
 				}
 			}
 		}
+		pointTimer = this.GetNode<Timer>("pointTimer");
+		pointTimer.WaitTime = 2.0f;
+		pointTimer.Connect("timeout", this, "pointSystem");
+		pointTimer.Start();
 	}
 	
 	public override void _IntegrateForces(Physics2DDirectBodyState state)
@@ -39,6 +45,18 @@ public class Missile : RigidBody2D
 			this.RotationDegrees = angle - 90;
 		}
 	}
+	
+	public void pointSystem()
+	{
+		if(points < 1000)
+		{
+			points = points * 2;
+		}
+		else
+		{
+			pointTimer.Stop();
+		}
+	}
 
 	public void setDamage(float dmg)
 	{
@@ -48,6 +66,11 @@ public class Missile : RigidBody2D
 	public float getDamage()
 	{
 		return damage;
+	}
+	
+	public float getPoints()
+	{
+		return points;
 	}
 	
 }
