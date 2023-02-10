@@ -11,7 +11,7 @@ var pointHigh = preload("res://1000Point.tscn")
 func take_damage(damage):
 	hp -= damage
 	if hp <= 0:
- 		$CollisionShape2D.queue_free()
+		$CollisionShape2D.queue_free()
 		$"../SmokeParticles".queue_free()
 		$"../FireParticles".queue_free()
 		$"../Sprite".queue_free()

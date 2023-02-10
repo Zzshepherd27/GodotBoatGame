@@ -28,7 +28,7 @@ func take_damage(damage):
 		$"../CollisionPolygon2D".queue_free()
 		
 		var blowup = explode.instance()
-		add_child(blowup)
+		world.add_child(blowup)
 		blowup.global_position = get_global_position()
 		
 		pointShow.position = self.position
