@@ -68,6 +68,7 @@ scale_curve = SubResource( 24 )
 color_ramp = SubResource( 23 )
 
 [sub_resource type="CapsuleShape2D" id=20]
+radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id=25]
 radius = 12.0
