@@ -58,7 +58,7 @@ public class SpawnerController : Node2D
 			{
 				spawn.setAngle(180 - spawn.getAngle());
 			}
-			spawn.setSpawnerForce(400);
+			spawn.setSpawnerForce(200);
 		}
 	}
 
