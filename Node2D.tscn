@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Boat_72.png" type="Texture" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://smokeexplode.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/Cloud_Night.png" type="Texture" id=16]
 [ext_resource path="res://CloudMove.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=18]
@@ -156,11 +155,6 @@ position = Vector2( -3993.75, -1461.54 )
 scale = Vector2( 400, 74.6154 )
 
 [node name="SpawnDelayTimer" type="Timer" parent="CloudDay"]
-
-[node name="CloudNight" type="Sprite" parent="."]
-position = Vector2( 2331, -2 )
-z_index = -2
-texture = ExtResource( 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

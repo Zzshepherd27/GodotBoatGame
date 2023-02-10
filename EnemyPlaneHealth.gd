@@ -34,7 +34,7 @@ func take_damage(damage):
 		pointShow.position = self.position
 		world.add_child(pointShow)
 		pointShow.global_position = get_global_position()
-		pointShow.global_position.y -= 50
+		pointShow.global_position.y -= 30
 		
 		yield(get_tree().create_timer(.9), "timeout")
 		blowup.queue_free()
