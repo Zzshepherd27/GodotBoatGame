@@ -50,4 +50,10 @@ public class BomberPlaneMovement : KinematicBody2D
 	{
 		return points;
 	}
+	
+	private void _on_VisibilityNotifier2D_screen_exited()
+	{
+		this.QueueFree();
+	}
+	
 }

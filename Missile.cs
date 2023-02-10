@@ -45,9 +45,9 @@ public class Missile : RigidBody2D
 		{
 			this.RotationDegrees = angle - 90;
 		}
-		if(dead)
+		if(GlobalPosition.x < -700 || GlobalPosition.x > 700 || GlobalPosition.y > 600)
 		{
-			this.LinearVelocity = offset;
+			this.QueueFree();
 		}
 	}
 	
@@ -76,11 +76,6 @@ public class Missile : RigidBody2D
 	public float getPoints()
 	{
 		return points;
-	}
-	
-	public void setDeath(bool setting)
-	{
-		dead = setting;
 	}
 	
 }
