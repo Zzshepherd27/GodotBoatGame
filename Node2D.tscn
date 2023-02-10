@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Boat_72.png" type="Texture" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://smokeexplode.tscn" type="PackedScene" id=15]
-[ext_resource path="res://CloudMove.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 117, 19.9063 )
@@ -144,17 +143,11 @@ spring_number = 60
 position = Vector2( 833, -24 )
 
 [node name="CloudDay" type="Sprite" parent="."]
+visible = false
 position = Vector2( 641, -160 )
 scale = Vector2( 0.16, 0.13 )
 z_index = -2
 texture = ExtResource( 11 )
-script = ExtResource( 17 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="CloudDay"]
-position = Vector2( -3993.75, -1461.54 )
-scale = Vector2( 400, 74.6154 )
-
-[node name="SpawnDelayTimer" type="Timer" parent="CloudDay"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -166,10 +159,13 @@ shape = SubResource( 19 )
 position = Vector2( -644, 17.5 )
 shape = SubResource( 20 )
 
-[node name="CloudSpawn" type="Position2D" parent="."]
-position = Vector2( 641, -160 )
-scale = Vector2( 0.16, 0.13 )
+[node name="CloudSpawn1" type="Position2D" parent="."]
+position = Vector2( -20, -350 )
+
+[node name="CloudSpawn2" type="Position2D" parent="."]
+position = Vector2( 1260, -350 )
+
+[node name="CloudSpawnTimer" type="Timer" parent="."]
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
 [connection signal="area_entered" from="BattleShip/BattleShipArea" to="BattleShip/BattleShipArea" method="_on_BattleShipArea_area_entered"]
-[connection signal="screen_exited" from="CloudDay/VisibilityNotifier2D" to="CloudDay" method="_on_VisibilityNotifier2D_screen_exited"]

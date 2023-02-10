@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Cloud_Day.png" type="Texture" id=1]
+[ext_resource path="res://CloudMove.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2( 0.16, 0.13 )
+
+[node name="CloudDay" type="Sprite" parent="."]
+position = Vector2( 4025, 1484.62 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="CloudDay"]
+position = Vector2( -3988.75, -1461.54 )
+scale = Vector2( 399.875, 74.6154 )
