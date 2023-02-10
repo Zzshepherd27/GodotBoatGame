@@ -10,6 +10,7 @@ func take_damage(damage):
 		var blowup = explode.instance()
 		add_child(blowup)
 		blowup.global_position = get_global_position()
+		
 		$"../Battlecrip".queue_free()
 		$"../Battlecrip/Muzzle".queue_free()
 		$"../Battlecrip/FireDelayTimer".queue_free()
