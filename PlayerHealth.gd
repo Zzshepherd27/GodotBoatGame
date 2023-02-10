@@ -22,5 +22,6 @@ func take_damage(damage):
 func _on_BattleShipArea_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.take_damage(1)
+		#area.setDeath(true)
 		take_damage(1)
 		
