@@ -1,0 +1,124 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/explosion_effect.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Smoke.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fire.png" type="Texture" id=3]
+[ext_resource path="res://smokeexplode.gd" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.288574, 0.288574, 0.288574, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=18]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -7.73693, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 130.57
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.25
+scale_random = 0.15
+scale_curve = SubResource( 19 )
+color = Color( 0.423529, 0.423529, 0.423529, 1 )
+color_ramp = SubResource( 18 )
+
+[sub_resource type="Curve" id=6]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.0224719, -263.455 ), 0.0, 0.0, 0, 0, Vector2( 1, 57.2727 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 6 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.00483092, 0.816425, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.52549, 1, 0, 0, 0.156863 )
+
+[sub_resource type="GradientTexture" id=21]
+gradient = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.172306, 0, 0, Vector2( 0.573034, 0 ), -12.905, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=22]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 132.5
+initial_velocity_random = 0.13
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel_random = 1.0
+damping = 6.93
+damping_random = 0.91
+angle = -521.4
+angle_random = 1.0
+angle_curve = SubResource( 20 )
+scale = 0.0
+scale_random = 0.22
+scale_curve = SubResource( 22 )
+color_ramp = SubResource( 21 )
+
+[sub_resource type="Curve" id=13]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 54.8182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=23]
+curve = SubResource( 13 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -6.11875, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=24]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 19.81
+initial_velocity_random = 0.1
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_curve = SubResource( 23 )
+scale = 0.1
+scale_curve = SubResource( 24 )
+
+[node name="smokeexplode" type="Particles2D"]
+position = Vector2( 1571, 182 )
+amount = 50
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 5 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="fireexplode" type="Particles2D" parent="."]
+amount = 60
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 12 )
+texture = ExtResource( 3 )
+
+[node name="boomexplode" type="Particles2D" parent="."]
+amount = 1
+explosiveness = 1.0
+process_material = SubResource( 17 )
+texture = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -18,9 +18,3 @@ func _physics_process(delta):
 func shoot_missle():
 	emit_signal("spawn_missle", muzzle.global_position)
 	
-#func take_damage(damage):
-#	hp -= damage
-#	if hp <= 0:
-
-		
-

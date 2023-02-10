@@ -1,26 +1,27 @@
 extends Area2D
 
-var hp = 3
+var hp = 1
 var explode = preload("res://smokeexplode.tscn")
 
+func _ready():
+	if self.get_name() == "Bomber1Area":
+		hp = 3
+	if self.get_name() == "Bomber2Area":
+		hp = 2
+
+
 func take_damage(damage):
+	print(hp)
 	hp -= damage
 	if hp <= 0:
 		
 		var blowup = explode.instance()
 		add_child(blowup)
 		blowup.global_position = get_global_position()
-		$"../Battlecrip".queue_free()
-		$"../Battlecrip/Muzzle".queue_free()
-		$"../Battlecrip/FireDelayTimer".queue_free()
+		$"../BomberSprite".queue_free()
 		$"../CollisionPolygon2D".queue_free()
 		
 		
 		yield(get_tree().create_timer(.9), "timeout")
 		get_parent().queue_free()
 
-func _on_BattleShipArea_area_entered(area):
-	if area.is_in_group("Enemy"):
-		area.take_damage(1)
-		take_damage(1)
-		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Boat_72.png" type="Texture" id=2]
@@ -10,108 +10,21 @@
 [ext_resource path="res://Assets/Background_Day.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Background_Night.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sand2.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Clouds.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Cloud_Day.png" type="Texture" id=11]
 [ext_resource path="res://Water_Body.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
-[ext_resource path="res://Assets/explosion_effect.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Smoke.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Fire.png" type="Texture" id=18]
+[ext_resource path="res://smokeexplode.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Cloud_Night.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 117, 19.9063 )
 
-[sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.288574, 0.288574, 0.288574, 1, 1, 1, 1, 0 )
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 3, 21.5 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -7.73693, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
-
-[sub_resource type="ParticlesMaterial" id=5]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, -98, 0 )
-initial_velocity = 130.57
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.25
-scale_random = 0.15
-scale_curve = SubResource( 4 )
-color = Color( 0.423529, 0.423529, 0.423529, 1 )
-color_ramp = SubResource( 2 )
-
-[sub_resource type="Curve" id=6]
-min_value = -360.0
-max_value = 360.0
-_data = [ Vector2( 0.0224719, -263.455 ), 0.0, 0.0, 0, 0, Vector2( 1, 57.2727 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
-
-[sub_resource type="Gradient" id=8]
-offsets = PoolRealArray( 0.00483092, 0.816425, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 0, 0, 0.52549, 1, 0, 0, 0.156863 )
-
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
-
-[sub_resource type="Curve" id=10]
-_data = [ Vector2( 0, 1 ), 0.0, 0.172306, 0, 0, Vector2( 0.573034, 0 ), -12.905, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=11]
-curve = SubResource( 10 )
-
-[sub_resource type="ParticlesMaterial" id=12]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, -98, 0 )
-initial_velocity = 132.5
-initial_velocity_random = 0.13
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-radial_accel_random = 1.0
-damping = 6.93
-damping_random = 0.91
-angle = -521.4
-angle_random = 1.0
-angle_curve = SubResource( 7 )
-scale = 0.0
-scale_random = 0.22
-scale_curve = SubResource( 11 )
-color_ramp = SubResource( 9 )
-
-[sub_resource type="Curve" id=13]
-min_value = -360.0
-max_value = 360.0
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 54.8182 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=14]
-curve = SubResource( 13 )
-
-[sub_resource type="Curve" id=15]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -6.11875, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=16]
-curve = SubResource( 15 )
-
-[sub_resource type="ParticlesMaterial" id=17]
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 19.81
-initial_velocity_random = 0.1
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle_curve = SubResource( 14 )
-scale = 0.1
-scale_curve = SubResource( 16 )
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 4, 17.5 )
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -119,7 +32,7 @@ script = ExtResource( 6 )
 [node name="BackgroundNight" type="Sprite" parent="."]
 position = Vector2( 0, -110 )
 scale = Vector2( 0.16, 0.15 )
-z_index = -2
+z_index = -3
 texture = ExtResource( 9 )
 
 [node name="SandNight" type="Sprite" parent="BackgroundNight"]
@@ -130,19 +43,13 @@ texture = ExtResource( 10 )
 [node name="BackgroundDay" type="Sprite" parent="."]
 position = Vector2( 0, -110 )
 scale = Vector2( 0.16, 0.15 )
-z_index = -2
+z_index = -3
 texture = ExtResource( 8 )
 
 [node name="SandDay" type="Sprite" parent="BackgroundDay"]
 position = Vector2( 0, -165 )
 scale = Vector2( 4.1875, 4.46667 )
 texture = ExtResource( 14 )
-
-[node name="Clouds" type="Sprite" parent="."]
-position = Vector2( -3, -316 )
-scale = Vector2( 0.67, 0.25 )
-z_index = -2
-texture = ExtResource( 11 )
 
 [node name="BattleShip" type="KinematicBody2D" parent="."]
 position = Vector2( 0, 16 )
@@ -233,29 +140,29 @@ z_index = 1
 script = ExtResource( 13 )
 spring_number = 60
 
-[node name="smokeexplode" type="Particles2D" parent="."]
-position = Vector2( 850, -48 )
-emitting = false
-amount = 50
-one_shot = true
-randomness = 1.0
-process_material = SubResource( 5 )
-texture = ExtResource( 17 )
+[node name="smokeexplode" parent="." instance=ExtResource( 15 )]
+position = Vector2( 833, -24 )
 
-[node name="fireexplode" type="Particles2D" parent="smokeexplode"]
-emitting = false
-amount = 60
-one_shot = true
-randomness = 1.0
-process_material = SubResource( 12 )
-texture = ExtResource( 18 )
+[node name="CloudDay" type="Sprite" parent="."]
+position = Vector2( 641, -160 )
+scale = Vector2( 0.16, 0.13 )
+z_index = -2
+texture = ExtResource( 11 )
 
-[node name="boomexplode" type="Particles2D" parent="smokeexplode"]
-emitting = false
-amount = 1
-one_shot = true
-process_material = SubResource( 17 )
+[node name="CloudNight" type="Sprite" parent="."]
+position = Vector2( 2331, -2 )
+z_index = -2
 texture = ExtResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 643, 22.5 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -644, 17.5 )
+shape = SubResource( 20 )
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
 [connection signal="area_entered" from="BattleShip/BattleShipArea" to="BattleShip/BattleShipArea" method="_on_BattleShipArea_area_entered"]

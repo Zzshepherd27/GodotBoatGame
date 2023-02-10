@@ -2,7 +2,7 @@
 
 [ext_resource path="res://BomberPlaneMovement.cs" type="Script" id=1]
 [ext_resource path="res://Assets/BlackBird.png" type="Texture" id=2]
-[ext_resource path="res://EnemyHealth.gd" type="Script" id=3]
+[ext_resource path="res://EnemyPlaneHealth.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
