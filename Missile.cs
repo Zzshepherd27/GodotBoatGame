@@ -9,6 +9,7 @@ public class Missile : RigidBody2D
 	private bool backwardsRotation = false;
 	private Timer pointTimer;
 	private float points = 250;
+	private bool dead = false;
 
 	// Called when the node enters the scene tree for the first time.
 	
@@ -44,6 +45,10 @@ public class Missile : RigidBody2D
 		{
 			this.RotationDegrees = angle - 90;
 		}
+		if(dead)
+		{
+			this.LinearVelocity = offset;
+		}
 	}
 	
 	public void pointSystem()
@@ -71,6 +76,11 @@ public class Missile : RigidBody2D
 	public float getPoints()
 	{
 		return points;
+	}
+	
+	public void setDeath(bool setting)
+	{
+		dead = setting;
 	}
 	
 }
