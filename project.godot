@@ -24,6 +24,10 @@ config/name="Boat Game"
 run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [gdnative]
 
 singletons=[  ]

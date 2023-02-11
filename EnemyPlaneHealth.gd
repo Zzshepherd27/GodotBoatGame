@@ -8,6 +8,8 @@ var pointHigh = preload("res://8000Point.tscn")
 onready var world = get_node("/root/Stage")
 var pointShow
 
+var currPoints
+
 func _ready():
 	if (self.get_name() == "Bomber1Area"):
 		#hp = 3
@@ -41,3 +43,5 @@ func take_damage(damage):
 		pointShow.queue_free()
 		get_parent().queue_free()
 
+func _process(delta):
+	currPoints = $"..".getPoints()

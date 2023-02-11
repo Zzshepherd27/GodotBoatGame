@@ -1,6 +1,6 @@
 extends Area2D
 
-var hp = 3
+var hp = 3 setget ,getHealth
 var explode = preload("res://smokeexplode.tscn")
 
 func take_damage(damage):
@@ -19,6 +19,9 @@ func take_damage(damage):
 		
 		yield(get_tree().create_timer(.9), "timeout")
 		get_parent().queue_free()
+
+func getHealth():
+   return hp
 
 func _on_BattleShipArea_area_entered(area):
 	if area.is_in_group("Enemy"):

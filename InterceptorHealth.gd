@@ -10,6 +10,8 @@ func take_damage(damage):
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Enemy"):
 		area.take_damage(1)
+		if area.hp <= 0:
+			Global.score += area.currPoints   
 		#area.setDeath(true)
 		take_damage(1)
 		

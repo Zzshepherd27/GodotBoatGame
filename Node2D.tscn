@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Boat_72.png" type="Texture" id=2]
@@ -15,6 +15,14 @@
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
 [ext_resource path="res://smokeexplode.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/Health_Light-01.png" type="Texture" id=16]
+[ext_resource path="res://HealthLight.gd" type="Script" id=17]
+[ext_resource path="res://RestartButton.gd" type="Script" id=18]
+[ext_resource path="res://Sprites/Button.png" type="Texture" id=19]
+[ext_resource path="res://Fonts/Ronysiswadi15Bold-6YAwY.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://Sprites/Nix.png" type="Texture" id=21]
+[ext_resource path="res://PointsLabel.gd" type="Script" id=22]
+[ext_resource path="res://BestLabel.gd" type="Script" id=23]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 117, 19.9063 )
@@ -24,6 +32,15 @@ extents = Vector2( 3, 21.5 )
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 4, 17.5 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 18
+font_data = ExtResource( 20 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 23
+extra_spacing_char = 32
+font_data = ExtResource( 20 )
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 6 )
@@ -167,5 +184,99 @@ position = Vector2( 1260, -350 )
 
 [node name="CloudSpawnTimer" type="Timer" parent="."]
 
+[node name="HealthLight" type="Sprite" parent="."]
+position = Vector2( -205, 162 )
+z_index = 3
+texture = ExtResource( 16 )
+script = ExtResource( 17 )
+
+[node name="RestartButton" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.0
+margin_top = -10.0
+margin_right = -5.0
+margin_bottom = 10.0
+text = "Restart"
+script = ExtResource( 18 )
+
+[node name="MenuButton" type="Button" parent="RestartButton"]
+margin_left = 66.5
+margin_right = 114.5
+margin_bottom = 20.0
+text = "Menu"
+
+[node name="Sprite" type="Sprite" parent="RestartButton"]
+position = Vector2( 61, -174 )
+scale = Vector2( 1.46901, 1.46901 )
+texture = ExtResource( 19 )
+
+[node name="Label" type="Label" parent="RestartButton/Sprite"]
+margin_left = -66.031
+margin_top = -30.6329
+margin_right = 150.969
+margin_bottom = 8.36708
+custom_fonts/font = SubResource( 21 )
+text = "GAME OVER"
+
+[node name="Label2" type="Label" parent="RestartButton/Sprite"]
+margin_left = -84.4107
+margin_top = 1.36147
+margin_right = 132.589
+margin_bottom = 40.3615
+custom_fonts/font = SubResource( 21 )
+text = "Best: 000000"
+script = ExtResource( 23 )
+
+[node name="PointsText" type="Node2D" parent="."]
+position = Vector2( 19, 0 )
+z_index = 3
+
+[node name="Label" type="Label" parent="PointsText"]
+margin_left = -137.0
+margin_top = 159.0
+margin_right = 143.0
+margin_bottom = 193.0
+rect_scale = Vector2( 1, 1.89367 )
+custom_colors/font_color = Color( 0.937255, 0.647059, 0.0235294, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "000000"
+script = ExtResource( 22 )
+
+[node name="Nix" type="Sprite" parent="PointsText"]
+position = Vector2( -131, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
+[node name="Nix2" type="Sprite" parent="PointsText"]
+position = Vector2( -78, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
+[node name="Nix3" type="Sprite" parent="PointsText"]
+position = Vector2( -24, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
+[node name="Nix4" type="Sprite" parent="PointsText"]
+position = Vector2( 28, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
+[node name="Nix5" type="Sprite" parent="PointsText"]
+position = Vector2( 79, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
+[node name="Nix6" type="Sprite" parent="PointsText"]
+position = Vector2( 131, 179 )
+z_index = -1
+texture = ExtResource( 21 )
+
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
 [connection signal="area_entered" from="BattleShip/BattleShipArea" to="BattleShip/BattleShipArea" method="_on_BattleShipArea_area_entered"]
+[connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="RestartButton/MenuButton" to="RestartButton" method="_on_MenuButton_pressed"]

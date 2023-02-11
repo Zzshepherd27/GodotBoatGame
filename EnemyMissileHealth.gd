@@ -8,6 +8,8 @@ var pointLow = preload("res://250Point.tscn")
 var pointMedium = preload("res://500Point.tscn")
 var pointHigh = preload("res://1000Point.tscn")
 
+var currPoints
+
 func take_damage(damage):
 	hp -= damage
 	if hp <= 0:
@@ -43,3 +45,5 @@ func take_damage(damage):
 		pointShow.queue_free()
 		get_parent().queue_free()
 
+func _process(delta):
+	currPoints = $"..".getPoints()

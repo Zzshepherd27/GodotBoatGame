@@ -35,7 +35,7 @@ text = "Quit"
 [node name="Back" type="Sprite" parent="."]
 position = Vector2( 628, 389 )
 scale = Vector2( 1.22495, 1.22495 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 2 )
 
 [node name="Title" type="Sprite" parent="."]
