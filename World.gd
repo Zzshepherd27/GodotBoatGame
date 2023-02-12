@@ -9,6 +9,7 @@ onready var cloudSpawnTwo = $CloudSpawn2
 
 onready var cloudSpawnTimer = $CloudSpawnTimer
 var cloudDelay: float = 0.5
+var audioStream
 
 func _on_Battlecrip_spawn_missle(location):
 	var m = Missle.instance()

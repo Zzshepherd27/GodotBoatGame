@@ -13,7 +13,7 @@ public class SpawnerController : Node2D
 		uint random = (GD.Randi() % 3) + 1;
 		randCounter1 += (int) random;
 		randCounter2 += (int) random;
-		if(randCounter1 > pace)
+		if(randCounter1 > pace/2)
 		{
 			random = (GD.Randi() % 6) + 1;
 			int spawnLoc = (int) random;

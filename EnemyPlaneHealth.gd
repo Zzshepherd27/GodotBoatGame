@@ -7,6 +7,7 @@ var pointMedium = preload("res://4000Point.tscn")
 var pointHigh = preload("res://8000Point.tscn")
 onready var world = get_node("/root/Stage")
 var pointShow
+var audioStream
 
 var currPoints
 
@@ -29,6 +30,9 @@ func take_damage(damage):
 		$"../BomberSprite".queue_free()
 		$"../CollisionPolygon2D".queue_free()
 		
+		audioStream = get_node("Explosion2")
+		world = get_node("/root/Stage/Audio")
+		world.audioBasic(audioStream)
 		var blowup = explode.instance()
 		world.add_child(blowup)
 		blowup.global_position = get_global_position()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://BattleShipMovement.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/Boat_72.png" type="Texture" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Water_Body.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Water_Body.gd" type="Script" id=13]
 [ext_resource path="res://Assets/SandDay.png" type="Texture" id=14]
-[ext_resource path="res://smokeexplode.tscn" type="PackedScene" id=15]
+[ext_resource path="res://mixkit-jump-into-the-water-1180.wav" type="AudioStream" id=15]
 [ext_resource path="res://Sprites/Health_Light-01.png" type="Texture" id=16]
 [ext_resource path="res://HealthLight.gd" type="Script" id=17]
 [ext_resource path="res://RestartButton.gd" type="Script" id=18]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Sprites/Nix.png" type="Texture" id=21]
 [ext_resource path="res://PointsLabel.gd" type="Script" id=22]
 [ext_resource path="res://BestLabel.gd" type="Script" id=23]
+[ext_resource path="res://Audio.tscn" type="PackedScene" id=24]
+[ext_resource path="res://ship_boom.wav" type="AudioStream" id=25]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 117, 19.9063 )
@@ -95,6 +97,15 @@ script = ExtResource( 3 )
 position = Vector2( 0, -4.09373 )
 shape = SubResource( 18 )
 
+[node name="Ship Explosion" type="AudioStreamPlayer2D" parent="BattleShip/BattleShipArea"]
+stream = ExtResource( 25 )
+volume_db = 9.0
+
+[node name="Boat Audio" type="AudioStreamPlayer2D" parent="BattleShip"]
+position = Vector2( 0, -16 )
+stream = ExtResource( 15 )
+pitch_scale = 1.35
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -100 )
 current = true
@@ -155,9 +166,6 @@ position = Vector2( -653, 30 )
 z_index = 1
 script = ExtResource( 13 )
 spring_number = 60
-
-[node name="smokeexplode" parent="." instance=ExtResource( 15 )]
-position = Vector2( 833, -24 )
 
 [node name="CloudDay" type="Sprite" parent="."]
 visible = false
@@ -275,6 +283,8 @@ texture = ExtResource( 21 )
 position = Vector2( 131, 179 )
 z_index = -1
 texture = ExtResource( 21 )
+
+[node name="Audio" parent="." instance=ExtResource( 24 )]
 
 [connection signal="spawn_missle" from="BattleShip/Battlecrip" to="." method="_on_Battlecrip_spawn_missle"]
 [connection signal="area_entered" from="BattleShip/BattleShipArea" to="BattleShip/BattleShipArea" method="_on_BattleShipArea_area_entered"]

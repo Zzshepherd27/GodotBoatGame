@@ -28,7 +28,7 @@ public class Missile : RigidBody2D
 			}
 		}
 		pointTimer = this.GetNode<Timer>("pointTimer");
-		pointTimer.WaitTime = 2.0f;
+		pointTimer.WaitTime = 1.5f;
 		pointTimer.Connect("timeout", this, "pointSystem");
 		pointTimer.Start();
 	}

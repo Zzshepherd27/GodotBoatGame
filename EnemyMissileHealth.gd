@@ -7,7 +7,7 @@ onready var world = get_node("/root/Stage")
 var pointLow = preload("res://250Point.tscn")
 var pointMedium = preload("res://500Point.tscn")
 var pointHigh = preload("res://1000Point.tscn")
-
+var audioStream
 var currPoints
 
 func take_damage(damage):
@@ -30,6 +30,9 @@ func take_damage(damage):
 		if ($"..".getPoints() == 1000):
 			pointShow = pointHigh.instance()
 		
+		audioStream = get_node("Explosion")
+		world = get_node("/root/Stage/Audio")
+		world.audioBasic(audioStream)
 		blowup.position = self.position
 		world.add_child(blowup)
 		blowup.global_position = get_global_position()

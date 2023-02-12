@@ -2,11 +2,14 @@ extends Area2D
 
 var hp = 3 setget ,getHealth
 var explode = preload("res://smokeexplode.tscn")
+var audioStream
 
 func take_damage(damage):
 	hp -= damage
 	if hp <= 0:
-		
+		audioStream = get_node("Ship Explosion")
+		var world = get_node("/root/Stage/Audio")
+		world.audioBasic(audioStream)
 		var blowup = explode.instance()
 		add_child(blowup)
 		blowup.global_position = get_global_position()
