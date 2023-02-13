@@ -9,7 +9,6 @@ public class Missile : RigidBody2D
 	private bool backwardsRotation = false;
 	private Timer pointTimer;
 	private float points = 250;
-	private bool dead = false;
 
 	// Called when the node enters the scene tree for the first time.
 	
@@ -18,6 +17,13 @@ public class Missile : RigidBody2D
 		for(int i = 1; i <= 6; i++)
 		{
 			Spawner sp = (Spawner)GetNode("/root/Stage/SpawnerController/SpawnLoc" + i);
+			if(this.GetNode<AnimationPlayer>("Sprite/neck/AnimationPlayer") != null)
+			{
+				if(this.Position.x == sp.Position.x && sp.Position.x > 0)
+				{
+					this.QueueFree();
+				}
+			}
 			if(this.Position.x == sp.Position.x && this.Position.y == sp.Position.y)
 			{
 				ApplyImpulse(offset, sp.getSpawnerForce());
@@ -79,3 +85,4 @@ public class Missile : RigidBody2D
 	}
 	
 }
+

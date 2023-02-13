@@ -104,6 +104,7 @@ volume_db = 9.0
 [node name="Boat Audio" type="AudioStreamPlayer2D" parent="BattleShip"]
 position = Vector2( 0, -16 )
 stream = ExtResource( 15 )
+volume_db = -10.0
 pitch_scale = 1.35
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -6,7 +6,7 @@ public class SpawnerController : Node2D
 	private Spawner spawn;
 	private int randCounter1 = 0; //Controls how random the spawning will be
 	private int randCounter2 = 0;
-	private int pace = 1000;
+	private int pace = 500;
 	
 	public override void _Process(float delta)
 	{
@@ -86,7 +86,7 @@ public class SpawnerController : Node2D
 		else if(sl < 7)
 		{
 			PackedScene missile = (PackedScene)GD.Load("res://Missile.tscn");
-			int test = (int)((GD.Randi() % 4) + 1);
+			int test = (int)((GD.Randi() % 5) + 1);
 			switch(test)
 			{
 				case 2:
@@ -97,6 +97,9 @@ public class SpawnerController : Node2D
 					break;
 				case 4:
 					missile = (PackedScene)GD.Load("res://Missile4.tscn");
+					break;
+				case 5:
+					missile = (PackedScene)GD.Load("res://pidgeon.tscn");
 					break;
 				default:
 					break;

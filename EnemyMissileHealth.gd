@@ -14,8 +14,10 @@ func take_damage(damage):
 	hp -= damage
 	if hp <= 0:
 		$CollisionShape2D.queue_free()
-		$"../SmokeParticles".queue_free()
-		$"../FireParticles".queue_free()
+		if $"../SmokeParticles" != null:
+			$"../SmokeParticles".queue_free()
+		if $"../FireParticles" != null:
+			$"../FireParticles".queue_free()
 		$"../Sprite".queue_free()
 		$"../CollisionShape2D".queue_free()
 				

@@ -6,7 +6,7 @@ public class BomberPlaneMovement : KinematicBody2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
-	private Vector2 velocity = new Vector2(-150, 0);
+	private Vector2 velocity = new Vector2(-250, 0);
 	private Sprite bomberSprite;
 	private float damage = 1;
 	private float points = 2000;
@@ -26,7 +26,7 @@ public class BomberPlaneMovement : KinematicBody2D
 		}
 		else if(GlobalPosition.y == -400)
 		{
-			velocity = 4 * velocity;
+			velocity = 3 * velocity;
 			points = 8000;
 		}
 	}
